@@ -1,0 +1,64 @@
+@mixin normal-font(
+    $style: normal,
+    $weight: normal,
+    $size: 16px,
+    $family: sans-serif
+){
+    font: {
+        style: $style;
+        weight: $weight;
+        size: $size;
+        family: $family;
+    };
+}
+
+@mixin large-text {
+
+    font: {
+
+        size: 22px;
+    };
+    @content;
+
+}
+
+
+@mixin dash-line($width, $color){
+    border: $width dashed $color;
+    @content;
+}
+
+.box1 {
+    @include dash-line(1px, red);
+}
+
+.box2 {
+    @include large-text;
+}
+
+
+// 
+@mixin position(
+    $p: absolute,
+    $t: null,
+    $b: null,
+    $l: null,
+    $r: null
+){
+    position: $p;
+    top: $t;
+    bottom: $b;
+    left: $l;
+    right: $r;
+}
+
+
+.fixed {
+    @include position(fixed, 30px, 40px)
+    
+}
+
+
+
+
+
